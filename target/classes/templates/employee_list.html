@@ -1,0 +1,21 @@
+
+<div th:replace="~{fragments/header :: header}"></div>
+
+<h2>All Employees</h2>
+
+<table border="1">
+  <tr>
+    <th>No</th>
+    <th>Name</th>
+    <th>E-mail</th>
+    <th>Department</th>
+  </tr>
+  <tr th:each="employee : ${employees}">
+    <td th:text="${employee.id}"></td>
+    <td th:text="${employee.name}"></td>
+    <td th:text="${employee.email}"></td>
+    <td th:text="${employee.department.name}"></td>
+  </tr>
+</table>
+
+<div th:replace="~{fragments/footer :: footer}"></div>

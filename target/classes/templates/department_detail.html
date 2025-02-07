@@ -1,0 +1,21 @@
+
+<div th:replace="~{fragments/header :: header}"></div>
+
+<h2>[[${department.name}]]</h2>
+
+<h3>DEPT CODE</h3>
+<p th:text="${department.code}"></p>
+
+<h3>Employees</h3>
+<ul th:if="${employees.size() > 0}">
+  <li 
+    th:each="employee : ${employees}" 
+    th:text="${employee.name}" 
+  />
+</ul>
+
+<p th:unless="${employees.size() > 0}">No employees</p>
+
+<a href="/departments">list</a>
+
+<div th:replace="~{fragments/footer :: footer}"></div>

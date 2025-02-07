@@ -1,0 +1,15 @@
+
+<div th:replace="~{fragments/header :: header}"></div>
+
+<h2>Departments</h2>
+
+<ul>
+  <li th:each="department : ${departments}">
+    <a 
+      th:href="${'/department/' + department.id}"
+      th:text="${department.name}"
+    />
+  </li>
+</ul>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
