@@ -1,6 +1,9 @@
 ## ManyToOne Example App
 > Spring framework example 
 
+### What we'll learn
+- Join table in DB
+
 ### Dependency
 - JPA
 - Thymeleaf
