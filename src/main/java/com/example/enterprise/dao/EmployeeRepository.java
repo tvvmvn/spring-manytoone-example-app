@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.example.enterprise.model.Employee;
 
-public interface EmployeeRepository extends JpaRepository<Employee, Long> {
-  List<Employee> findByDepartmentId(Long id);
+public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
+  List<Employee> findByDepartmentId(Integer id);
 }
 

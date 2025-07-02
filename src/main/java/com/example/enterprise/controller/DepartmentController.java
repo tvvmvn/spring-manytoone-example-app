@@ -19,7 +19,9 @@ public class DepartmentController {
   private DepartmentRepository departmentRepository;
   private EmployeeRepository employeeRepository;
 
-  DepartmentController(DepartmentRepository departmentRepository, EmployeeRepository employeeRepository) {
+  public DepartmentController(
+    DepartmentRepository departmentRepository, EmployeeRepository employeeRepository) {
+    
     this.departmentRepository = departmentRepository;
     this.employeeRepository = employeeRepository;
   }
@@ -29,7 +31,6 @@ public class DepartmentController {
   public String getAll(Model model) {
     
     List<Department> departments = departmentRepository.findAll();
-
     model.addAttribute("departments", departments);
 
     return "department_list";
@@ -37,15 +38,14 @@ public class DepartmentController {
 
   // Get a department
   @GetMapping("/department/{id}")
-  public String getOne(@PathVariable("id") Long id, Model model) {
+  public String getOne(@PathVariable("id") int id, Model model) {
     
     Department department = departmentRepository.findById(id)
         .orElseThrow(() -> new DepartmentNotFoundException());
-
     model.addAttribute("department", department);
 
+    // Inner join
     List<Employee> employees = employeeRepository.findByDepartmentId(id);
-
     model.addAttribute("employees", employees);
 
     return "department_detail";

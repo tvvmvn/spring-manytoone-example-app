@@ -1,33 +1,32 @@
 package com.example.enterprise.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Email;
 
 @Entity
 public class Employee {
 
   @Id
   @GeneratedValue(strategy=GenerationType.AUTO)
-  private long id;
+  private int id;
   
-  @NotEmpty
+  @Column(nullable = false)
   private String name;
 
-  @Email
+  @Column(nullable = false)
   private String email;
 
-  @NotNull
   @ManyToOne
+  @JoinColumn
   private Department department;
 
-  // initializer
-  public Employee() {};
+  //
+  public Employee() {}
 
   public Employee(String name, String email, Department department) {
     this.name = name;
@@ -36,11 +35,11 @@ public class Employee {
   }
 
   // getter and setter
-  public long getId() {
+  public int getId() {
     return id;
   }
 
-  public void setId(Long id) {
+  public void setId(int id) {
     this.id = id;
   }
 

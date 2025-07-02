@@ -1,7 +1,11 @@
 
 <div th:replace="~{fragments/header :: header}"></div>
 
-<h2>[[${department.name}]]</h2>
+<h2>[[${department.name}]] Department</h2>
+
+<p>
+  <a href="/departments">Back</a>
+</p>
 
 <h3>DEPT CODE</h3>
 <p th:text="${department.code}"></p>
@@ -16,6 +20,3 @@
 
 <p th:unless="${employees.size() > 0}">No employees</p>
 
-<a href="/departments">list</a>
-
-<div th:replace="~{fragments/footer :: footer}"></div>
